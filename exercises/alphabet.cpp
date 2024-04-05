@@ -5,10 +5,21 @@
 
 #include <iostream>
 
-int main() {
+int main()
+{
+    //unsigned char letter = 'a';
+    auto alphabet = [letter = 'a']() mutable->unsigned char {
+        if (letter == 'z' + 1) {
+            letter = 'A';
+        }
+        else if (letter == 'Z' + 1) {
+            letter = 'a';
+        }
+        return letter++;
+    };
 
     for (int i = 0; i < 100; ++i) {
-        // std::cout << alphabet();
+        std::cout << alphabet();
     }
     std::cout << '\n';
     return 0;
